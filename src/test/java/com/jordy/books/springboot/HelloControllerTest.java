@@ -12,6 +12,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static  org.hamcrest.Matchers.is;
+
 import com.jordy.books.springboot.web.HelloController;
 
 @RunWith(SpringRunner.class) // 1)
@@ -27,5 +30,28 @@ public class HelloControllerTest {
         mvc.perform(get("/hello")) // 5)
                 .andExpect(status().isOk()) // 6)
                 .andExpect(content().string(hello)); // 7)
+    }
+
+    @Test
+    public void getHello2() throws Exception{
+        String hello = "hello";
+
+        mvc.perform(get("/hello2"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(hello));
+    }
+
+    @Test
+    public void helloDto가_리턴된다() throws Exception{
+        String name = "hello";
+        int amount = 1000;
+
+        mvc.perform(
+                    get("/hello/dto")
+                        .param("name", name) // 1)
+                        .param("amount", String.valueOf(amount)))
+                    .andExpect(status().isOk())
+                    .andExpect(jsonPath("$.name", is(name))) // 2)
+                    .andExpect(jsonPath("$.amount", is(amount)));
     }
 }

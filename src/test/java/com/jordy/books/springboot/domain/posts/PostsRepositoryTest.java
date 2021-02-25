@@ -16,7 +16,7 @@ public class PostsRepositoryTest {
     @Autowired
     PostsRepository postsRepository;
 
-    @After
+    @After // 1)
     public void cleanup(){
         postsRepository.deleteAll();
     }
@@ -27,13 +27,13 @@ public class PostsRepositoryTest {
         String title = "테스트게시글";
         String content = "테스트본문";
 
-        postsRepository.save(Posts.builder()
+        postsRepository.save(Posts.builder() // 2)
                 .title(title)
                 .content(content)
                 .author("jordy@gmail.com")
                 .build());
         //when
-        List<Posts> postsList = postsRepository.findAll();//
+        List<Posts> postsList = postsRepository.findAll();// 3)
 
         //then
         Posts posts = postsList.get(0);

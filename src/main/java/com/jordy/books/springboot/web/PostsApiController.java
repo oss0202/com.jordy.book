@@ -1,7 +1,9 @@
 package com.jordy.books.springboot.web;
 
 import com.jordy.books.springboot.service.posts.PostsService;
+import com.jordy.books.springboot.web.dto.PostsResponseDto;
 import com.jordy.books.springboot.web.dto.PostsSaveRequestDto;
+import com.jordy.books.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +24,7 @@ public class PostsApiController {
     }
 
     @GetMapping("/api/v1/posts/{id}")
-    public PostsRsponseDto findById(@PathVariable Long id){
-        return postsService.findById();
+    public PostsResponseDto findById(@PathVariable Long id){
+        return postsService.findById(id);
     }
 }

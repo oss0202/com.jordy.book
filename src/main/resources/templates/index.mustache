@@ -30,7 +30,11 @@
         {{#posts}} <!-- posts 라는 List를 순회합니다., Java의 for문과 동일합니다.-->
             <tr>
                 <td>{{id}}</td> <!-- List에서 뽑아낸 객체의 필드를 사용합니다.-->
-                <td>{{title}}</td>
+                <td>
+                    <a href="/posts/update/{{id}}"> <!-- 1) -->
+                        {{title}}
+                    </a>
+                </td>
                 <td>{{author}}</td>
                 <td>{{createdDate}}</td>
                 <td>{{modifiedDate}}</td>

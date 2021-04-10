@@ -1,5 +1,6 @@
 package com.jordy.books.springboot.web;
 
+import com.jordy.books.springboot.config.auth.LoginUser;
 import com.jordy.books.springboot.config.auth.dto.SessionUser;
 import com.jordy.books.springboot.service.posts.PostsService;
 import com.jordy.books.springboot.web.dto.PostsResponseDto;
@@ -24,16 +25,26 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser user){  // 1)
         model.addAttribute("posts", postsService.findAllDesc());
 
-        SessionUser user = (SessionUser) httpSession.getAttribute("user"); // 1)
-
-        if(user != null){ // 2)
+        if(user != null){
             model.addAttribute("userName", user.getName());
         }
         return "index";
     }
+//    Not Annotation
+//    @GetMapping("/")
+//    public String index(Model model){
+//        model.addAttribute("posts", postsService.findAllDesc());
+//
+//        SessionUser user = (SessionUser) httpSession.getAttribute("user"); // 1)
+//
+//        if(user != null){ // 2)
+//            model.addAttribute("userName", user.getName());
+//        }
+//        return "index";
+//    }
 
     @GetMapping("/posts/save")
     public String postsSave(){

@@ -12,7 +12,8 @@
             <div class="col-md-6">
                 <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
                 {{#userName}} <!-- 1) -->
-                    Logged in as : <span id="user">{{userName}}</span>
+                    Logged in as :
+                        <span id="user">{{userName}}</span>({{userEmail}})
                     <a href="/logout" class="btn btn-info active" role="button">
                         Logout
                     </a>
@@ -20,6 +21,9 @@
                 {{^userName}}
                     <a href="/oauth2/authorization/google" class="btn btn-success active" role="button"><!--  2) -->
                         Google Login
+                    </a>
+                    <a href="/oauth2/authorization/naver" class="btn btn-success active" role="button">
+                        Naver Login
                     </a>
                 {{/userName}}
             </div>

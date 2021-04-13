@@ -47,8 +47,7 @@ public class HelloControllerTest {
         String hello = "hello";
 
         mvc.perform(get("/hello2"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(hello));
+                .andExpect(status().isNotFound());
     }
 
     @Test

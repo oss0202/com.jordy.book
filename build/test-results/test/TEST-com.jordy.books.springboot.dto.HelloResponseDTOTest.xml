@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.jordy.books.springboot.dto.HelloResponseDTOTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-26T09:36:40" hostname="DESKTOP-4KAJM75" time="0.006">
-  <properties/>
-  <testcase name="룸복_기능_테스트" classname="com.jordy.books.springboot.dto.HelloResponseDTOTest" time="0.006"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

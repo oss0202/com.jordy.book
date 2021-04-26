@@ -23,9 +23,9 @@ import com.jordy.books.springboot.web.HelloController;
 
 @RunWith(SpringRunner.class) // 1)
 @WebMvcTest(controllers = HelloController.class
-    ,excludeFilters = {
+        ,excludeFilters = {
         @ComponentScan.Filter(type= FilterType.ASSIGNABLE_TYPE
-        , classes = SecurityConfig.class)
+                , classes = SecurityConfig.class)
 }) // 2)
 public class HelloControllerTest {
     @Autowired // 3)
@@ -47,8 +47,7 @@ public class HelloControllerTest {
         String hello = "hello";
 
         mvc.perform(get("/hello2"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(hello));
+                .andExpect(status().isNotFound());
     }
 
     @Test
@@ -58,11 +57,11 @@ public class HelloControllerTest {
         int amount = 1000;
 
         mvc.perform(
-                    get("/hello/dto")
+                get("/hello/dto")
                         .param("name", name) // 1)
                         .param("amount", String.valueOf(amount)))
-                    .andExpect(status().isOk())
-                    .andExpect(jsonPath("$.name", is(name))) // 2)
-                    .andExpect(jsonPath("$.amount", is(amount)));
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is(name))) // 2)
+                .andExpect(jsonPath("$.amount", is(amount)));
     }
 }

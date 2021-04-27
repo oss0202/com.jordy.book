@@ -1,4 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
-.gradle
+#.gradle gradle 버전 변경으로 인한 추가
 .idea
 application-oauth.properties

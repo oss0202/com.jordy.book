@@ -17,9 +17,9 @@ script: "./gradlew clean build"
 before_install: "chmod +x ./gradlew"
 
 before_deploy:
-  - zip -r com.jordy.book *
+  - zip -r oss0202-springboot-webservice *
   - mkdir -p deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
-  - mv com.jordy.book.zip deploy/com.jordy.book.zip # deploy로 zip파일 이동
+  - mv oss0202-springboot-webservice.zip deploy/oss0202-springboot-webservice.zip # deploy로 zip파일 이동
 
 deploy:
   - provider: s3

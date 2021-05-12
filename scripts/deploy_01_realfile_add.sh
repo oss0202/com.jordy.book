@@ -3,7 +3,7 @@
 REPOSITORY=/home/ec2-user/app/step1
 PROJECT_NAME=oss0202-springboot2-webservice
 
-echo "> Build 파일 복사 "
+echo "> Build 파일 복사"
 
 cp $REPOSITORY/zip/*.jar $REPOSITORY/
 

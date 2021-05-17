@@ -1,7 +1,7 @@
 #!/bin/bash
 
-REPOSITORY=/home/ec2-user/app/step1
-PROJECT_NAME=oss0202-springboot2-webservice
+REPOSITORY=/home/ec2-user/app/step2
+PROJECT_NAME=com.jordy.book
 
 echo "> Build 파일 복사"
 
@@ -9,7 +9,7 @@ cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 
-CURRENT_PID=$(pgrep -fl oss0202-springboot2-webservice | grep jar | awk '{print $1}')
+CURRENT_PID=$(pgrep -fl com.jordy.book | awk '{print $1}')
 
 echo "현재 구동중인 어플리케이션 pid: $CURRENT_PID"
 

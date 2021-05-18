@@ -1,0 +1,11 @@
+1. 설치할 nginx 찾기
+amazon-linux-extras list | grep nginx
+
+2. nginx 설치
+sudo amazon-linux-extras install -y nginx1
+
+3. nginx 설치 확인
+nginx -v
+
+4. nginx 서비스 시작
+sudo service nginx start

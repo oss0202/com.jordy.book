@@ -3,6 +3,20 @@
 REPOSITORY=/home/ec2-user/app/step1
 PROJECT_NAME=com.jordy.book
 
+cd $REPOSITORY/$PROJECT_NAME/
+
+echo "> Git pull"
+
+git pull
+
+echo "> 프로젝트 Build 시작"
+
+./gradlew build
+
+echo "> step1 디렉토리 이동"
+
+cd $REPOSITORY
+
 echo "> Build 파일 복사"
 
 cp $REPOSITORY/zip/*.jar $REPOSITORY/

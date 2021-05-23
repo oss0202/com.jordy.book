@@ -3,6 +3,20 @@
 REPOSITORY=/home/ec2-user/app/step1
 PROJECT_NAME=com.jordy.book
 
+cd $REPOSITORY/$PROJECT_NAME/
+
+echo "> Git pull"
+
+git pull
+
+echo "> 프로젝트 Build 시작"
+
+./gradlew build
+
+echo "> step1 디렉토리 이동"
+
+cd $REPOSITORY
+
 echo "> Build 파일 복사"
 
 cp $REPOSITORY/zip/*.jar $REPOSITORY/
@@ -17,7 +31,7 @@ if [ -z "$CURRENT_PID" ]; then
     echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다."
 else
     echo "> kill -15 $CURRENT_PID"
-    kill -15 $CURRENT_PID
+    sudo kill -15 $CURRENT_PID
     sleep 5
 fi
 
